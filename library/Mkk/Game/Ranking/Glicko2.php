@@ -20,10 +20,10 @@ class Glicko2 extends RankingAbstract
             foreach ($this->_players as $p) {
                 $var = $this->_calculateVariance ($p->getId());
                 $sge = $this->_helperSGE ($p->getId());
-                $playersigma = $this->_updateSigma($p->getVolatility(), $p->getPhi(), $var, $var * $sge);
-                $newPhi = 1 / sqrt( 1/ (pow($p->getPhi(),2) + pow($playersigma,2)) + 1/$var);
+                $playerSigma = $this->_updateSigma($p->getVolatility(), $p->getPhi(), $var, $var * $sge);
+                $newPhi = 1 / sqrt( 1/ (pow($p->getPhi(),2) + pow($playerSigma,2)) + 1/$var);
                 
-                $p->setNewVolatility($playersigma)
+                $p->setNewVolatility($playerSigma)
                   ->setNewPhi($newPhi)
                   ->setNewMu($p->getMu() + pow($newPhi,2) * $sge);
             }
@@ -79,7 +79,7 @@ class Glicko2 extends RankingAbstract
             $h1 = -($x - $a) / pow($tau,2) - 0.5 * exp($x) / $d + 0.5 * exp($x) * pow(($delta/$d),2);
             $h2 = -1 / pow($tau,2) - 0.5 * exp($x) * (pow($playerPhi,2) + $variance) / pow($d,2) + 0.5 * pow($delta,2) * exp($x) * (pow($playerPhi,2) + $variance - exp($x)) / pow($d,3);
             $x -= $h1/$h2;
-        } while (abs($h1/$h2) > 0.000001);
+        } while (abs($h1/$h2) > 0.0000001);
 
         return exp($x/2);
     }
