@@ -1,5 +1,12 @@
 <?php
-class Mkk_Game_Ranking_Glicko2 extends Mkk_Game_Ranking
+
+namespace Mkk\Game\Ranking;
+
+use Mkk\Game\RankingAbstract;
+
+require_once __DIR__ . '/../RankingAbstract.php';
+
+class Glicko2 extends RankingAbstract
 {
 
     public function updateRanking()

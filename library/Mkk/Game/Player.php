@@ -1,6 +1,8 @@
 <?php
 
-class Mkk_Game_Player
+namespace Mkk\Game;
+
+class Player
 {
 
     protected $_id = null;

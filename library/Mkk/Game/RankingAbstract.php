@@ -1,10 +1,13 @@
 <?php
-abstract class Mkk_Game_Ranking
+
+namespace Mkk\Game;
+
+abstract class RankingAbstract
 {
 
     protected $_players = array();
     
-    public function addPlayer($uniqueId, Mkk_Game_Player $player)
+    public function addPlayer($uniqueId, Player $player)
     {
         if (isset($this->_players[$uniqueId])) {
             throw new Exception('Impossible to set the same player 2 times');

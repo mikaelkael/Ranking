@@ -1,6 +1,12 @@
 <?php
 
-class Mkk_Game_Player_Glicko2 extends Mkk_Game_Player
+namespace Mkk\Game\Player;
+
+use Mkk\Game\Player;
+
+require_once __DIR__ . '/../Player.php';
+
+class Glicko2 extends Player
 {
 
     protected $_volatility = null;
@@ -9,7 +15,7 @@ class Mkk_Game_Player_Glicko2 extends Mkk_Game_Player
 
     public function setVariance($variance)
     {
-        $this->_variance = $variance;
+        $this->_variance = (float) $variance;
         return $this;
     }
     
@@ -28,7 +34,7 @@ class Mkk_Game_Player_Glicko2 extends Mkk_Game_Player
     public function setNewVolatility($volatility)
     {
         $this->_newVolatility = (float) $volatility;
-	return $this;
+        return $this;
     }
 
     public function getNewVolatility()
