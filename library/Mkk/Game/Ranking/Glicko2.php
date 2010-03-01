@@ -4,7 +4,7 @@ namespace Mkk\Game\Ranking;
 
 use Mkk\Game\RankingAbstract;
 
-require_once __DIR__ . '/../RankingAbstract.php';
+require_once 'Mkk/Game/RankingAbstract.php';
 
 class Glicko2 extends RankingAbstract
 {

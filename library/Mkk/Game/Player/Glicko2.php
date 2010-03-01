@@ -4,7 +4,7 @@ namespace Mkk\Game\Player;
 
 use Mkk\Game\Player;
 
-require_once __DIR__ . '/../Player.php';
+require_once 'Mkk/Game/Player.php';
 
 class Glicko2 extends Player
 {

@@ -23,34 +23,16 @@ class Glicko2Test extends TestCommon
      */
     public function testScenarioAllInOneGame()
     {
-        $player1 = new PlayerGlicko2();
-        $player1->setRating(1500);
-        $player1->setRatingDeviation(200);
-        $player1->setVolatility(0.06);
-
-        $player2 = new PlayerGlicko2();
-        $player2->setRating(1400);
-        $player2->setRatingDeviation(30);
-        $player2->setVolatility(0.06);
-
-        $player3 = new PlayerGlicko2();
-        $player3->setRating(1550);
-        $player3->setRatingDeviation(100);
-        $player3->setVolatility(0.06);
-
-        $player4 = new PlayerGlicko2();
-        $player4->setRating(1700);
-        $player4->setRatingDeviation(300);
-        $player4->setVolatility(0.06);
+        $player1 = new PlayerGlicko2(array('rating' => 1500, 'ratingDeviation' => 200, 'volatility' => 0.06));
+        $player2 = new PlayerGlicko2(array('rating' => 1400, 'ratingDeviation' =>  30, 'volatility' => 0.06));
+        $player3 = new PlayerGlicko2(array('rating' => 1550, 'ratingDeviation' => 100, 'volatility' => 0.06));
+        $player4 = new PlayerGlicko2(array('rating' => 1700, 'ratingDeviation' => 300, 'volatility' => 0.06));
 
         $game = new RankingGlicko2();
-        $game->addPlayer(1, $player4);
-        $game->addPlayer(2, $player3);
-        $game->addPlayer(3, $player1);
-        $game->addPlayer(4, $player2);
+        $game->addPlayers(array($player4, $player3, $player1, $player2));
         $game->updateRanking();
 
-        $player = $game->getPlayerById(3);
+        $player = $game->getPlayerById(2);
         $this->assertEquals(1464.051, round($player->getNewRating(), 3));
         $this->assertEquals(151.517, round($player->getNewRatingDeviation(), 3));
         $this->assertEquals(0.06, round($player->getNewVolatility(), 2));
