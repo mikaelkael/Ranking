@@ -5,10 +5,9 @@ namespace Mkk\Tests\Game\Ranking;
 use Mkk\Game\Ranking\Glicko2 as RankingGlicko2;
 use Mkk\Game\Player\Glicko2 as PlayerGlicko2;
 
-require_once __DIR__ . '/../../TestInit.php';
 require_once __DIR__ . '/TestCommon.php';
-require_once __DIR__ . '/../../../library/Mkk/Game/Ranking/Glicko2.php';
-require_once __DIR__ . '/../../../library/Mkk/Game/Player/Glicko2.php';
+require_once 'Mkk/Game/Ranking/Glicko2.php';
+require_once 'Mkk/Game/Player/Glicko2.php';
 
 class Glicko2Test extends TestCommon
 {

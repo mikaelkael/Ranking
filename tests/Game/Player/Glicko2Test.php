@@ -4,8 +4,7 @@ namespace Mkk\Tests\Game\Player;
 
 use Mkk\Game\Player\Glicko2;
 
-require_once __DIR__ . '/../../TestInit.php';
-require_once __DIR__ . '/../../../library/Mkk/Game/Player/Glicko2.php';
+require_once 'Mkk/Game/Player/Glicko2.php';
 
 class Glicko2Test extends \PHPUnit_Framework_TestCase
 {

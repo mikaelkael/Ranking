@@ -4,8 +4,7 @@ namespace Mkk\Tests\Game;
 
 use Mkk\Game\Player;
 
-require_once __DIR__ . '/../TestInit.php';
-require_once __DIR__ .  '/../../library/Mkk/Game/Player.php';
+require_once 'Mkk/Game/Player.php';
 
 class PlayerTest extends \PHPUnit_Framework_TestCase
 {
