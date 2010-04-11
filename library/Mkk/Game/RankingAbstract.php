@@ -18,18 +18,19 @@ abstract class RankingAbstract
 
     public function addPlayers(array $players)
     {
-        foreach ($players as $id => $p) {
-            $this->addPlayer($id, $p);
+        foreach ($players as $p) {
+            $this->addPlayer($p);
         }
         return $this;
     }
 
-    public function addPlayer($uniqueId, Player $player)
+    public function addPlayer(PlayerInterface $player)
     {
+        $uniqueId = $player->getId();
         if (isset($this->_players[$uniqueId])) {
-            throw new Exception('Impossible to set the same player 2 times');
+            throw new \Exception('Impossible to set the same player 2 times');
         }
-        $this->_players[$uniqueId] = $player->setId($uniqueId);
+        $this->_players[$uniqueId] = $player;
         return $this;
     }
     
@@ -48,7 +49,7 @@ abstract class RankingAbstract
         if (isset($this->_players[$playerId])) {
             return $this->_players[$playerId];
         } else {
-            return null;
+            throw new \Exception('No player set with the given Id');
         }
     }
     
