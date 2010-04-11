@@ -12,12 +12,6 @@ class Glicko2 extends Player
     protected $_volatility = null;
 
     protected $_newVolatility = null;
-
-    public function setVariance($variance)
-    {
-        $this->_variance = (float) $variance;
-        return $this;
-    }
     
     public function setVolatility($volatility)
     {
