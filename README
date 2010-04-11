@@ -6,16 +6,16 @@ With the example provide in the above page:
 use Mkk\Game\Ranking\Glicko2 as RankingGlicko2;
 use Mkk\Game\Player\Glicko2 as PlayerGlicko2;
 
-$player1 = new PlayerGlicko2(array('rating' => 1500, 'ratingDeviation' => 200, 'volatility' => 0.06));
-$player2 = new PlayerGlicko2(array('rating' => 1400, 'ratingDeviation' =>  30, 'volatility' => 0.06));
-$player3 = new PlayerGlicko2(array('rating' => 1550, 'ratingDeviation' => 100, 'volatility' => 0.06));
-$player4 = new PlayerGlicko2(array('rating' => 1700, 'ratingDeviation' => 300, 'volatility' => 0.06));
+$player1 = new PlayerGlicko2(array('id' = 1, 'rating' => 1500, 'ratingDeviation' => 200, 'volatility' => 0.06));
+$player2 = new PlayerGlicko2(array('id' = 2, 'rating' => 1400, 'ratingDeviation' =>  30, 'volatility' => 0.06));
+$player3 = new PlayerGlicko2(array('id' = 3, 'rating' => 1550, 'ratingDeviation' => 100, 'volatility' => 0.06));
+$player4 = new PlayerGlicko2(array('id' = 4, 'rating' => 1700, 'ratingDeviation' => 300, 'volatility' => 0.06));
 
 $game = new RankingGlicko2();
 $game->addPlayers(array($player4, $player3, $player1, $player2));
 $game->updateRanking();
 
-$player = $game->getPlayerById(2);
+$player = $game->getPlayerById(1);
 
 echo $player->getNewRating();
 echo $player->getNewRatingDeviation();
