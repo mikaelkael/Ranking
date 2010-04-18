@@ -36,6 +36,11 @@ class Player implements PlayerInterface
     protected $_newRatingDeviation = 0;
 
     /**
+     * @var integer
+     */
+    protected $_position = null;
+
+    /**
      *
      * @param array|Zend_Config $options
      */
@@ -134,5 +139,23 @@ class Player implements PlayerInterface
     public function getNewRatingDeviation()
     {
         return $this->_newRatingDeviation;
+    }
+
+    /**
+     * @param integer $position
+     * @return \Mkk\Game\Player
+     */
+    public function setPosition($position)
+    {
+        $this->_position = (int) $position;
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->_position;
     }
 }

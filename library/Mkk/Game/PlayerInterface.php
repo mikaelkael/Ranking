@@ -9,4 +9,8 @@ interface PlayerInterface {
     public function getRating();
 
     public function getRatingDeviation();
+
+    public function setPosition($position);
+
+    public function getPosition();
 }

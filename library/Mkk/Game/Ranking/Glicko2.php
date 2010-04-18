@@ -44,14 +44,23 @@ class Glicko2 extends RankingAbstract
     {
         $sum = 0;
         $current = $this->_players[$playerId];
-        $gameResult = 0;
+        $currentPosition = $current->getPosition();
         foreach ($this->_players as $id => $p) {
             if ($id != $playerId) {
+                switch (true) {
+                    case $currentPosition < $p->getPosition():
+                        $gameResult = 1;
+                        break;
+                    case $currentPosition == $p->getPosition():
+                        $gameResult = 0.5;
+                        break;
+                    case $currentPosition > $p->getPosition():
+                        $gameResult = 0;
+                        break;
+                }
                 $g = $this->_helperG($p->getPhi());
                 $e = $this->_helperE($current->getMu(), $p->getMu(), $p->getPhi());
                 $sum += $g * ($gameResult - $e);
-            } else {
-                $gameResult = 1;
             }
         }
         return $sum;

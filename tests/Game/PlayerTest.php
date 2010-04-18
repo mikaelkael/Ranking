@@ -67,4 +67,11 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, $player->getRatingDeviation());
         $this->assertEquals(5678, $player->getNewRatingDeviation());
     }
+
+    public function testSettingPosition()
+    {
+        $player = new Player();
+        $player->setPosition(5678);
+        $this->assertEquals(5678, $player->getPosition());
+    }
 }

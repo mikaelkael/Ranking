@@ -30,6 +30,9 @@ abstract class RankingAbstract
         if (isset($this->_players[$uniqueId])) {
             throw new \Exception('Impossible to set the same player 2 times');
         }
+        if ($player->getPosition() == null) {
+            $player->setPosition(count($this->_players) + 1);
+        }
         $this->_players[$uniqueId] = $player;
         return $this;
     }
